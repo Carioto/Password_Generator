@@ -1,14 +1,56 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
+var upperABC = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var lowerABC = "abcdefghijklmnopqrstuvwxyz";
+var symbols = "!@#$%^&*?";
+var numbers = "0123456789";
 
-// Write password to the #password input
+
+
 function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-
+  //Prompt user to input number between 8 and 128
+  while(true){
+   var pwLength = prompt("How long would you like your password to be? Between 8 and 128 characters");
+     if (pwLength >= 8 && pwLength <= 128) {
+         break;
+    } else {
+       alert("Please enter a valid number");
+      }
+  }
+  //Prompt user for password parameters
+  var askLower = confirm("Would you like lower case letters in your password?");
+  var askCaps = confirm("Would you like upper case letters in your password?");
+  var askNum = confirm("Would you like numbers in your password?");
+  var askSpecial = confirm("Would you like Symbols in your password?");
+  //Verify at least 1 parameter has been chosen
+  if (!askLower && !askCaps && !askNum && !askSpecial) {
+    alert("At least one option must be chosen, please try again.")
+    return writePassword();
+  }
+  //Create string with all chosen character options
+  var qq="";
+  if (askLower) {
+          qq += lowerABC;
 }
-
+if (askCaps) {
+          qq += upperABC;
+}
+if (askNum) {
+          qq += numbers;
+}
+if (askSpecial) {
+          qq += symbols;
+}
+  //create password using parameters of user
+let generatePassword = "";
+for (let i=0; i < pwLength; i++){
+  let lng =[Math.floor(Math.random() * qq.length)]; 
+  generatePassword += qq[lng];
+}
+  //Send password to HTML
+var password = generatePassword;
+var passwordText = document.querySelector("#password");
+passwordText.value = password;
+}
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
