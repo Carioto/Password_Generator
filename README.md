@@ -12,7 +12,11 @@ Use this application to create random passwords. To increase the strength of you
 ![Opening screenshot](/assets/Screenshot.png)
 
 ## Credits
-Reviewing the process found at (https://forum.codewithmosh.com/t/creating-a-password-generator-using-javascript/18971) gave me ideas in creating the latter part of this application.
+Reviewing the processes found at 
+(https://forum.codewithmosh.com/t/creating-a-password-generator-using-javascript/18971),
+(https://www.programiz.com/javascript/examples/generate-random-strings#), and
+(https://www.codespeedy.com/shuffle-characters-of-a-string-in-javascript)
+gave me ideas in creating the latter part of this application.
 
 ##
 See LICENSE.txt in root directory.
